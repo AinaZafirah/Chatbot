@@ -1,7 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Typography from "@mui/material/Typography";
@@ -31,7 +29,6 @@ export default function ForgotPassword() {
   //   const handleUsername = (event) => {};
 
   // Input error
-  const [usernameError, setUsernameError] = React.useState(false);
   const [passwordError, setPasswordError] = React.useState(false);
 
   // Form validity

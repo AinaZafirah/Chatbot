@@ -23,7 +23,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Sidebar from "../../layout/Sidebar/Sidebar"
 
 
 const AllNotes = () => {

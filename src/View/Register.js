@@ -14,15 +14,13 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { styled } from "@mui/system";
-import axios from "axios";
-import { db, auth, provider } from "../Components/firebase-config.js";
+import { db, auth} from "../Components/firebase-config.js";
 import {
   getDocs,
   addDoc,
   collection,
   where,
   query,
-  doc,
 } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
@@ -37,13 +35,6 @@ const isEmail = (email) =>
   /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
 
 export default function Register() {
-  // Real
-  const [inputs, setInputs] = React.useState({
-    fullName: "",
-    userName: "",
-    email: "",
-    password: "",
-  });
 
   const [fullName, setfullName] = React.useState("");
   const [userName, setUserName] = React.useState("");
@@ -60,9 +51,6 @@ export default function Register() {
   const [err, setErr] = React.useState(false);
   const [success, setSuccess] = React.useState();
 
-  const handleChange = (e) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleEmail = () => {
     console.log(isEmail(email));

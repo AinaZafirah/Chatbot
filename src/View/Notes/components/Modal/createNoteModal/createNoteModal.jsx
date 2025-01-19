@@ -13,10 +13,10 @@ import {
   AddedTagsBox,
   OptionsBox,
 } from "./createNoteModal.styles";
-import { ButtonFill, ButtonOutline } from "../../../styles/styles";
+
 
 //icons
-import { FaTimes, FaPlus } from "react-icons/fa";
+import { FaTimes} from "react-icons/fa";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 //redux
@@ -33,10 +33,8 @@ import TextEditor from "../../TextEditor/TextEditor";
 import TagsModal from "../TagsModal/TagsModal";
 import {
   Button,
-  FormControl,
   InputLabel,
   NativeSelect,
-  Select,
   Typography,
 } from "@mui/material";
 

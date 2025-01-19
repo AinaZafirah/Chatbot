@@ -5,10 +5,8 @@ import Button from "@mui/material/Button";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import img from "../assets/landing-pic.png";
 import { Link } from "react-router-dom";
-import Navbar from "../Components/Navbar";
 
 export default function Home() {
-  const [mode, setMode] = React.useState("light");
 
   return (
     <>

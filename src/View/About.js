@@ -8,15 +8,10 @@ import img3 from '../assets/sequentialpic.jpg'
 import img4 from '../assets/verbalpic.jpg'
 import img5 from '../assets/visualpic.jpg'
 import { Card, CardContent,Grid } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { CardActionArea } from '@mui/material';
 import CardMedia from '@mui/material/CardMedia';
 
 
-const StyledCard = styled(Card)`
-  margin-bottom: 16px;
-  margin-right: 20px;
-`;
 const style = [
     {
         img: img1,
