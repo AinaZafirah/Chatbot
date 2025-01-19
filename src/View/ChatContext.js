@@ -1,8 +1,5 @@
-import { useState, createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { AuthContext } from "../context/authContext";
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
 
 export const ChatContext = createContext();
 

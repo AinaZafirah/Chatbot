@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { RadarChart } from "./RadarChart";
-import { Box, Button, Card, CardContent, Grid, MenuItem, Select, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Grid, Typography } from "@mui/material";
 import { RadarData, RadarOptions } from "./RadarConfig";
 import { Link } from "react-router-dom";
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -124,26 +124,7 @@ export default function Analytics() {
               borderRadius: "10px",
             }}>
 
-        
-
-        {/* <Box sx={{ mx: "90px", mb: '20px', textAlign: 'center' }}>
-          <Typography variant="body1" sx={{ mb: 1 }}>
-            Filter by Student:
-          </Typography>
-          <Select
-            value={selectedStudent}
-            onChange={handleStudentChange}
-            displayEmpty
-            sx={{ minWidth: 120 }}
-          >
-            <MenuItem value="all">All Students</MenuItem>
-            {studentNames.map((student, index) => (
-              <MenuItem key={index} value={student.value}>
-                {student.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </Box> */}
+  
             <Box
               sx={{
                 display: "flex",

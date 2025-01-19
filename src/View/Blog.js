@@ -1,15 +1,10 @@
 // BlogWidget.js
 import React from 'react';
 import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import img1 from '../assets/34371991_v228-wit-02a-job58.jpg'
 import img2 from '../assets/6-Effective-Visual-Learner-Strategies-.jpeg'
 import img3 from '../assets/i83770283.jpg.webp'
 
-const StyledCard = styled(Card)`
-  margin-bottom: 16px;
-  width: 100%;
-`;
 
 const blogPosts = [
     {

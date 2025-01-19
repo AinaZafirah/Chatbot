@@ -16,14 +16,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { styled } from "@mui/system";
-import { AuthContext } from "../context/authContext";
-import axios from "axios";
-import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
 import { db, auth, provider } from "../Components/firebase-config.js";
 import {
   getDocs,
-  addDoc,
   setDoc,
   collection,
   where,
@@ -32,7 +27,6 @@ import {
 } from "firebase/firestore";
 import { signInWithPopup } from "firebase/auth";
 import Cookies from "universal-cookie";
-import { Cookie } from "@mui/icons-material";
 
 const dbref = collection(db, "Auth");
 const cookies = new Cookies();
@@ -50,7 +44,7 @@ export default function Login() {
 
   const [isAuth, setIsAuth] = React.useState(cookies.get("auth-token"));
 
-  const [err, setErr] = React.useState(false);
+ 
   const [success, setSuccess] = React.useState();
 
   const navigate = useNavigate();

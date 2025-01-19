@@ -2,9 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import {
   Box,
   Button,
-  Card,
-  CardContent,
-  Grid,
   TextField,
   Typography,
 } from "@mui/material";
@@ -18,7 +15,6 @@ import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import EditNoteIcon from "@mui/icons-material/EditNote";
@@ -26,7 +22,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { db } from "../Components/firebase-config.js";
 import {
-  getDocs,
   addDoc,
   setDoc,
   collection,
@@ -44,9 +39,7 @@ import { ChatContext } from "./ChatContext.js";
 import { v4 as uuid } from "uuid";
 import { AuthContext } from "../context/authContext.js";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import Avatar from "@mui/material/Avatar";
 
-const chatDB = collection(db, "ChatID");
 
 const cookies = new Cookies();
 
@@ -64,12 +57,6 @@ export default function ChatbotFrontEnd() {
 
   const handleDrawerTransitionEnd = () => {
     setIsClosing(false);
-  };
-
-  const handleDrawerToggle = () => {
-    if (!isClosing) {
-      setMobileOpen(!mobileOpen);
-    }
   };
 
   const [chats, setChatHistory] = React.useState([]);
@@ -108,24 +95,6 @@ export default function ChatbotFrontEnd() {
 
   const [input, setInput] = useState([]);
 
-  const [choice1, setChoice1] = useState([
-    "Visual",
-    "Verbal",
-    "Active",
-    "Reflective",
-    "Intuitive",
-    "Sensitive",
-    "Sequential",
-    "Global",
-  ]);
-
-  const [choice2, setChoice2] = useState([
-    "Lesson Plan",
-    "Exercise",
-    "Teaching Strategies",
-    "Environment",
-  ]);
-
   const [subject, setSubject] = useState([
     "Science",
     "Mathematics",
@@ -155,50 +124,12 @@ export default function ChatbotFrontEnd() {
   const [choosePlan, setChoosePlan] = useState();
 
   const handleSelect = (u) => {
-    // setChoice2(["LO", "Exercise", "Teaching Strategies", "Environment"]);
 
     dispatch({ type: "CHANGE_USER", payload: u });
     setidl(u);
 
     const unSub = onSnapshot(doc(db, "Chats", u), (doc) => {
       doc.exists() && setInput(doc.data().messages);
-
-      // const mylist = input.map((item, index) => {
-      //   <li key={index}>
-      //     if (item.senderId === 1)
-      //     {setMessages([
-      //       ...messages,
-      //       {
-      //         content: item.text,
-      //         isCustomer: false,
-      //       },
-      //     ])}
-      //     {setMessages([
-      //       ...messages,
-      //       {
-      //         content: item.text,
-      //         isCustomer: true,
-      //       },
-      //     ])}
-      //   </li>;
-      //   // if (item.senderId === 1) {
-      //   //   setMessages([
-      //   //     ...messages,
-      //   //     {
-      //   //       content: item.text,
-      //   //       isCustomer: false,
-      //   //     },
-      //   //   ]);
-      //   // } else {
-      //   //   setMessages([
-      //   //     ...messages,
-      //   //     {
-      //   //       content: item.text,
-      //   //       isCustomer: true,
-      //   //     },
-      //   //   ]);
-      //   // }
-      // });
     });
 
     return () => {
@@ -207,25 +138,6 @@ export default function ChatbotFrontEnd() {
   };
 
   console.log(input);
-
-  const History = [
-    {
-      title: "Visual Learner Planner",
-      date: "29 April 2023",
-    },
-    {
-      title: "Visual Learner Planner",
-      date: "26 April 2023",
-    },
-    {
-      title: "Plant Lesson Plan",
-      date: "4 April 2023",
-    },
-    {
-      title: "Science Y4 Lesson Plan",
-      date: "3 April 2023",
-    },
-  ];
 
   const newChat = async (e) => {
     const mess = "Hello. Welcome to EduSys. Please choose a subject.";
@@ -245,7 +157,6 @@ export default function ChatbotFrontEnd() {
     });
 
     await setDoc(doc(db, "Chats", ChatId.id), {
-      // messages: []
       messages: arrayUnion({
         id: uuid(),
         text: mess,
@@ -470,7 +381,6 @@ export default function ChatbotFrontEnd() {
   };
 
   const { currentUser } = useContext(AuthContext);
-  const { data1 } = useContext(ChatContext);
 
   const [newMessage, setNewMessage] = useState("");
 
@@ -541,7 +451,6 @@ export default function ChatbotFrontEnd() {
       );
       console.log(answer);
 
-      // return;
     } else if (learningStyle.includes(messageInput)) {
       setChooseStyle(messageInput);
       const response = await axios({
@@ -677,7 +586,6 @@ export default function ChatbotFrontEnd() {
     }
   };
 
-  const [resultData, setResultData] = useState("");
 
   const chatDisplay = (c) => {
     const sections = c.split("\n").map((section) => section.trim());
@@ -774,7 +682,6 @@ export default function ChatbotFrontEnd() {
           <Box
             ref={messagesListRef}
             sx={{
-              height: "100%",
               overflow: "scroll",
               overflowX: "hidden",
               flex: 1,

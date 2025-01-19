@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -48,7 +47,6 @@ export const RadarData = {
       label: " Raja",
       backgroundColor: 'rgba(54, 162, 235, 0.2)',
       fill: true,
-      backgroundColor: 'rgba(255, 99, 132, 0.2)',
       borderColor: 'rgb(255, 99, 132)',
       pointBackgroundColor: 'rgb(255, 99, 132)',
       pointBorderColor: '#fff',
@@ -61,7 +59,6 @@ export const RadarData = {
       label: " Che Yew",
       backgroundColor: 'rgba(3, 201, 169, 1)',
       fill: true,
-      backgroundColor: 'rgba(195, 255, 104, 0.2)',
       borderColor: 'rgb(195, 255, 104)',
       pointBackgroundColor: 'rgb(195, 255, 104)',
       pointBorderColor: '#fff',
@@ -74,7 +71,6 @@ export const RadarData = {
       label: "Iman",
       backgroundColor: 'rgba(142, 68, 173, 1)',
       fill: true,
-      backgroundColor: 'rgba(142, 68, 173, 0.2)',
       borderColor: 'rgb(142, 68, 173, 1)',
       pointBackgroundColor: 'rgb(142, 68, 173, 1)',
       pointBorderColor: '#fff',
@@ -87,7 +83,6 @@ export const RadarData = {
       label: "Harry",
       backgroundColor: 'rgba(229, 98, 94, 1)',
       fill: true,
-      backgroundColor: 'rgba(229, 98, 94, 0.2)',
       borderColor: 'rgb(229, 98, 94)',
       pointBackgroundColor: 'rgb(229, 98, 94)',
       pointBorderColor: '#fff',

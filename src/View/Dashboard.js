@@ -1,66 +1,26 @@
 import React, { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
-import { Card, CardContent, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import cover from "../assets/34371991_v228-wit-02a-job58.jpg";
 import AllNotes from "./Notes/pages/AllNotes/AllNotes";
 import { AuthContext } from "../context/authContext.js";
 import Cookies from "universal-cookie";
 import Blog from "./Blog";
 import { db } from "../Components/firebase-config.js";
-import { query, where, collection, getDocs } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import QuizIcon from '@mui/icons-material/Quiz';
 
-const cookies = new Cookies();
-
-const StyledCard = styled(Card)`
-  margin-bottom: 16px;
-  margin-right: 20px;
-`;
-const noteList = [
-  {
-    img: cover,
-    title: "Visual Learner Planner",
-    date: "24 April 2021",
-  },
-  {
-    img: cover,
-    title: "Visual Learner Planner",
-    date: "24 April 2021",
-  },
-  {
-    img: cover,
-    title: "Plant Lesson Plan",
-    date: "24 April 2021",
-  },
-  {
-    img: cover,
-    title: "Science Y4 Lesson Plan",
-    date: "24 April 2021",
-  },
-];
 
 const dbref = collection(db, "Auth");
 
 export default function Dashboard() {
-  const [isAuth, setIsAuth] = React.useState(cookies.get("auth-token"));
-
+  
   const { currentUser } = useContext(AuthContext);
 
-  // const handleLogin = async (e) => {
-  //   const emailMatch = query(dbref, where("Email", "==", isAuth));
-  //   const emailSnapshot = await getDocs(emailMatch);
-  //   const emailArray = emailSnapshot.docs.map((doc) => doc.data());
-  //   return emailArray;
-  // };
-
-  // console.log(currentUser.displayName);
 
   return (
     <>
